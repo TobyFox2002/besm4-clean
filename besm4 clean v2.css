@@ -1,0 +1,371 @@
+/* ***************************************************************** */
+/* System: Big Eyes Small Mouth 4th Edition                          */
+/* Author: Tobias Fox with assistance from others                    */
+/* GitHub: GitHub URL                                                */
+/* Revision: 0.1a                                                    */
+/* Details:  This is a CSS file that uses CSE format                 */
+/* ***************************************************************** */
+/* ***************************************************************** */
+/* CSS Colors Default BLUE BAYOUX #476477 https://artyclick.com/color-names-dictionary/color-names/blue-bayoux-color  */
+/* CSS Colors Default Darkmode EMINENCE #6C3082 https://artyclick.com/color-names-dictionary/color-names/eminence-color */
+
+
+
+
+
+/* Global Elements */
+.container {
+	width: auto;
+}
+.charsheet {
+	font-size: 13px;
+	line-height: 1.5em;
+	font-weight: 400;
+	margin: 0px;
+	padding: 0px !important;
+}
+/* Reset all roll buttons to use the D10 dice instead of the D20 Dice */
+/* The font is called "dicefontd10" and it is unique to r20 for their layout */
+/* The default font family is called "dicefontd20" which has the icon shape of a 20-sided dice */
+/* See https://wiki.roll20.net/CSS#Icon_Fonts for more details */
+
+/* Generic Styles */
+.img {max-width: unset;height: unset;}
+.invis   {opacity: 0%; !important}
+.left    {text-align: left !important;    text-align: -webkit-left !important;}
+.center  {text-align: center !important;  text-align: -webkit-center !important;}
+.justify {text-align: justify !important; text-align: -webkit-justify !important;}
+.right   {text-align: right !important;   text-align: -webkit-right !important;}
+
+/* The letter w in front of the style indicates it is a width only style.  It may have padding
+   but it is design to supercede all other styles for whatever element to which it is applied. */
+.w100p   {width: 99% !important}
+.w50p    {width: 50% !important}
+/* The width of the following are for a capital letter M in sans-serif font.  This may vary for number or dropdown boxes. */
+.w1m		 {width: 1.5em !important;}
+.w2m		 {width: 2.4em !important;}
+.w3m		 {width: 3.3em !important;}
+.w4m		 {width: 4.4em !important;}
+.w5m		 {width: 5.1em !important;}
+
+/* Pop up Modal Window */
+
+.popupbutton {
+	font-family: "Pictos" !important;
+	font-size: 1.3em;
+	padding: 2px;
+	vertical-align: baseline;
+	background: white;
+	color: black;
+	border: 1px solid black;
+	border-radius: 7px;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+}
+
+popupbutton:hover {background: cyan;}
+.fontRufScript {font-familiy: "RufscriptRegular";}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  background: #fff;
+  border: 5px solid #476477; /* Temporary, added for testing elements. */
+  border-radius: 20px/20px;
+  width: 70%;
+  position: relative;
+  /*transition: all 5s ease-in-out; -- Temporarily disabled, slows testing*/
+}
+.sheet-darkmode .popup {background-color: black; color: white;border:5px sol}
+.sheet-darkmode .popup .close {color: white;}
+.popup .close {
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+/* Unset because .close is used by roll20 */
+	float: right;
+	line-height: unset;
+	opacity: .5;
+}
+.popup .close:hover {
+  color: #8d56a7; /* This is for both light and dark mode */
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+/* ****************** END CHARACTER POINT POPUP MODAL WINDOW *************************************************  */
+label.smilabel {display: inline !important;}
+label.smlabel {text-align: center;}
+label.smlabel span, label.smilabel span {font-size: 0.7em;}
+
+button[type="roll"]:before {
+	font-family: "dicefontd10" !important;
+	font-size: 1.7em;
+	content: "k" !important;
+}
+button.quickroll:before {/* Overides the icon so text can be displayed within instead */
+	content: "" !important;
+	font-size:0.75em;
+    display: none;
+}
+@font-face {
+	/* Font from: https://fontlibrary.org/en/font/rufscript */
+	font-family: "RufscriptRegular";
+	src: url("http://openfontlibrary.org/assets/fonts/rufscript/92112519f91e7a5ab80261a017c09b72/f886671cdc88e2725676a457e14e8512/RufscriptRegular.ttf");
+}
+input[type="text"],
+input[type="number"] {
+	width: 90%;
+	padding-left: 0.4em;
+	padding-bottom: 0em;
+	margin-bottom: 0px;
+  
+	font-family: Sans-serif;
+	line-height: 1.5em;
+
+	border: 0px solid #666;
+	border-bottom-width: 1px;
+	border-radius: 3px;
+}
+/* CSS Button Styles (No SheetWorkers) */
+.cssbutton, .showarrow, .back-button,
+.refreshbutton, .split-column-show, .lock-show , .counted {
+	opacity: 0; position: relative; top: 0; left: 19px; cursor: pointer; z-index: 5;
+}
+.cssbutton,
+.refreshbutton,
+.configbutton {
+    margin-right: 15px !important; /* -1.5rem */
+	width: 23px !important;
+}
+input.cssbutton, input.showarrow, input.back-buttonbutton,
+input.refreshbutton, input.split-column-show, input.lock-show , input.counted {
+	height: 1.6em;
+}
+.cssbutton + span::before {
+    display: inline-block;
+    font-size: 1.2em;
+	margin-left: -20px;
+	padding: .1em;
+	font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #808080;
+	background-color: #FFFFFF;
+	color:Black;
+	text-align:center;
+	font-style:normal !important;
+	width: 24px !important;  /* 1.4 rem */
+	height: 24px !important; /* 1.4 rem */
+	box-sizing: border-box;
+}
+.minimize-show:checked ~ .lock-show + span::before,
+.cssbutton:checked + span::before {
+	background-color: #4a6486;
+	color: #DDDDDD;
+}
+.minimize-show  + span::before,
+.collapse-show + span::before {
+	font-family: Arial, Sans-serif !important;
+	content: '☐';
+}
+.minimize-show:checked + span::before,
+.collapse-show:checked + span::before {
+	font-family: "Pictos" !important;
+	content: '_';
+}
+.help-show + span:before {
+	font-family: "Pictos" !important;
+	content: "?";
+}
+.noexpand + span:before {
+	font-family: "Pictos" !important;
+	content: ")";
+}
+.noexpand:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "(";
+}
+.reset + span:before {
+	font-family: "Pictos" !important;
+	content: "!";
+}
+.reset:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "!";
+}
+.notify + span:before {
+	font-family: "Pictos" !important;
+	content: "U";
+}
+.notify:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "U";
+}
+.rollonly + span:before {
+	font-family: "Pictos" !important;
+	content: "W";
+}
+.rollonly:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "n";
+}
+.fancy + span:before {
+	font-family: "Pictos" !important;
+	content: "F";
+}
+.fancy:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "P";
+}
+.cog + span:before {
+	font-family: "Pictos" !important;
+	content: "y";
+}
+.cog:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "y";
+}
+.tools + span:before {
+	font-family: "Pictos" !important;
+	content: "x";
+}
+.tools:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "x";
+}
+/* Navigational Buttons and Config Buttons */
+/* Show/Hide Content for the selected navigational Tab */
+.charsheet .core,
+.charsheet .combat,
+.charsheet .abilities,
+.charsheet .advantages,
+.charsheet .details,
+.charsheet .biography,
+.charsheet .config {
+	display: none;
+}
+
+.charsheet .tabstoggle[value="core"] ~ div.core,
+.charsheet .tabstoggle[value="combat"] ~ div.combat,
+.charsheet .tabstoggle[value="abilities"] ~ div.abilities,
+.charsheet .tabstoggle[value="advantages"] ~ div.advantages,
+.charsheet .tabstoggle[value="biography"] ~ div.biography,
+.charsheet .tabstoggle[value="details"] ~ div.details,
+.charsheet .tabstoggle[value="config"] ~ div.config {
+	display: block;
+}
+.sheet-darkmode .charsheet .tabstoggle[value="core"] ~ div.core,
+.sheet-darkmode .charsheet .tabstoggle[value="combat"] ~ div.combat,
+.sheet-darkmode .charsheet .tabstoggle[value="abilities"] ~ div.abilities,
+.sheet-darkmode .charsheet .tabstoggle[value="advantages"] ~ div.advantages,
+.sheet-darkmode .charsheet .tabstoggle[value="biography"] ~ div.biography,
+.sheet-darkmode .charsheet .tabstoggle[value="details"] ~ div.details,
+.sheet-darkmode .charsheet .tabstoggle[value="config"] ~ div.config {
+	color: white;
+}
+/* style inactive top nav button */
+.charsheet button.topnav {
+	background: #702c91;
+	color: white;
+	height: 1.2em;
+	cursor: pointer;
+	padding: 0.6em 0.3em 0.1em 0.3em;
+	white-space: nowrap;
+	border-radius: 7px 7px 0px 0px;
+	font-family: arial;
+	font-weight: bold;
+}
+/* style the active button */
+.charsheet .tabstoggle[value="core"]       ~ div .topnav0 {background: #8d56a7;}
+.charsheet .tabstoggle[value="advantages"] ~ div .topnav1 {background: #8d56a7;}
+.charsheet .tabstoggle[value="combat"]     ~ div .topnav2 {background: #8d56a7;}
+.charsheet .tabstoggle[value="details"]    ~ div .topnav3 {background: #8d56a7;}
+.charsheet .tabstoggle[value="biography"]  ~ div .topnav4 {background: #8d56a7;}
+.charsheet .tabstoggle[value="config"]     ~ div .topnav5 {background: #8d56a7;}
+
+/* show the selected tab */
+.charsheet .tabstoggle[value="core"] ~ div.core,
+.charsheet .tabstoggle[value="advantages"] ~ div.advantages,
+.charsheet .tabstoggle[value="combat"] ~ div.combat,
+.charsheet .tabstoggle[value="details"] ~ div.details,
+.charsheet .tabstoggle[value="biography"] ~ div.biography,
+.charsheet .tabstoggle[value="config"] ~ div.config {
+    display: block;
+}
+/* Pre-Top Nav Element */
+/* This area contains the game system image, and page configuration content. */
+/* .PreNav {
+	display: grid;
+	grid-template-columns: 60px 1fr 1fr 1fr 110px;
+	grid-template-rows: 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas: "Logo character player chronicle-name config";
+	border: solid 1px black;
+} */
+
+.PreNav {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"config config config config config"
+		"img character cp race class"
+		"img player size height mass";
+	border: solid 1px black;
+}
+
+.tn-config {grid-area: config; justify-self: right; align-self: center; border: solid 1px red;}
+.tn-img {grid-area: img; justify-self: stretch; align-self: center;width:max-content;}
+.tn-character {grid-area: character; justify-self: center; align-self: center;}
+.tn-cp {grid-area: cp; justify-self: center; align-self: center;}
+.chpoints {width: 4.5em !important;}
+.tn-race {grid-area: race; justify-self: center; align-self: center;}
+.tn-class {grid-area: class; justify-self: center; align-self: center;}
+.tn-player {grid-area: player; justify-self: center; align-self: center;}
+.tn-size {grid-area: size; justify-self: center; align-self: center;}
+.size {width: 6.5em !important;}
+.tn-height {grid-area: height; justify-self: center; align-self: center;}
+.tn-mass {grid-area: mass; justify-self: center; align-self: center;}
+
+/* Experience (CP) Popup Modal Grid */
+.cpmodalgrid {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-template-rows: 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"unspent cpbase    cpability cpskills    cpdefects cpexit"
+		"unspent cpcustom1 cpcustom2 cpdropdown  cpvalidation cpexit";
+}
+.cp-unspent    {grid-area:unspent;      justify-self:anchor-center;align-self:stretch;border: 1px solid red;}
+.cp-base       {grid-area:cpbase;       justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-abilities  {grid-area:cpability;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-skills     {grid-area:cpskills;     justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-defects    {grid-area:cpdefects;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-custom1    {grid-area:cpcustom1;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-custom2    {grid-area:cpcustom2;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-dropdown   {grid-area:cpdropdown;   justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-validation {grid-area:cpvalidation; justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.cp-end        {grid-area:cpexit;       justify-self:unset;align-self:flex-start;padding-right: .4em;}
