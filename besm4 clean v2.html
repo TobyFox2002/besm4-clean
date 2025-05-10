@@ -1,102 +1,164 @@
+<span class="#home"></span>
 <div class="container">
-<div class="PreNav">
-	<div class="tn-config">
-		<input class="cog        cssbutton" type="checkbox"  name="attr_sheet-config"    value="1" title="Set Game Options, including alternate roll rules and sub-stats."/><span></span>
-		<input class="help-show  cssbutton" type="checkbox"  name="attr_sheet-newplayer" value="1" title="Enable Expanded tooltips for new players. (Not Yet Implimented)."/><span></span>
-		<input class="notify     cssbutton" type="checkbox"  name="attr_sheet-notify"    value="1" title="Notify select person when changes are made to the character sheet. (Not Yet Implimented)."/><span></span>	
-	</div>
-	<div class="tn-img"><img src="https://i.imgur.com/9y2bNUX.png" style="max-height: 8em !important;" alt="World of Darkness 20th Anniversary Edition Character Sheet" /></div>
-	<div class="tn-name">	  	<label class="smlabel"><input type="text" name="attr_player_name"    title="@{player_name}"                  placeholder="Player Name"    /><br><span>Player</span></label></div>
-	<div class="tn-cp">		   	
-								<a class="popupbutton" href="#cpconfig">x</a>
-								<label class="smilabel"><input type="text" name="attr_total_cp"       class="chpoints" title="@{unspent_cp }"    placeholder="Unspent Character Points"        />
-								<input type="text" name="attr_earned_cp" class="chpoints" title="@{earned_cp}" placeholder="Total Earned Character Points (not including starting or base)"        /><br>
-								<span style="padding-left: 23%">Unspent / Total CP</span></label>
-	</div>
-	<div class="tn-race">	  	<label class="smlabel"><input type="text" name="attr_race"           title="@{race}"                         placeholder="Race"           /><br><span>Race</span></label></div>
-	<div class="tn-class">	  	<label class="smlabel"><input type="text" name="attr_class"          title="@{class}"                        placeholder="Class"          /><br><span>Class</span></label></div>
-	<div class="tn-character">	<label class="smlabel"><input type="text" name="attr_character_name" title="@{character_name}"               placeholder="Character Name" /><br><span>Character</span></label></div>
-	<div class="tn-size">		<input class="tools cssbutton" type="checkbox"  name="attr_sizedetails"    value="1" title="Set and view size template for character"/><span></span>
-								<label class="smilabel"><input type="text" name="attr_size"           class="size" title="@{size}"            placeholder="Size"           /><br><span>Size</span></label></div>
-	<div class="tn-height">	  	<label class="smlabel"><input type="text" name="attr_height"         class="size" title="@{height}"          placeholder="Height"         /><br><span>Height</span></label></div>
-	<div class="tn-mass">	  	<label class="smlabel"><input type="text" name="attr_mass"           class="size" title="@{mass}"            placeholder="Mass"           /><br><span>Mass</span></label></div>
+	<div class="PreNav">
+		<div class="tn-config">
+			<input class="cog        cssbutton" type="checkbox"  name="attr_sheet-config"    value="1" title="Set Game Options, including alternate roll rules and sub-stats."/><span></span>
+			<input class="help-show  cssbutton" type="checkbox"  name="attr_sheet-newplayer" value="1" title="Enable Expanded tooltips for new players. (Not Yet Implimented)."/><span></span>
+			<input class="notify     cssbutton" type="checkbox"  name="attr_sheet-notify"    value="1" title="Notify select person when changes are made to the character sheet. (Not Yet Implimented)."/><span></span>	
+		</div>
+		<div class="tn-img"><img src="https://i.imgur.com/9y2bNUX.png" style="max-height: 8em !important;" alt="World of Darkness 20th Anniversary Edition Character Sheet" /></div>
+		<div class="tn-name">	  	<label class="smlabel"><input type="text" name="attr_player_name"    title="@{player_name}"                  placeholder="Player Name"    /><br><span>Player</span></label></div>
+		<div class="tn-cp">		   	
+									<a class="popupbutton" href="#cpconfig">x</a>
+									<label class="smilabel"><input type="text" name="attr_total_cp"       class="chpoints" title="@{unspent_cp }"    placeholder="Unspent Character Points"        />
+									<input type="text" name="attr_earned_cp" class="chpoints" title="@{earned_cp}" placeholder="Total Earned Character Points (not including starting or base)"        /><br>
+									<span style="padding-left: 23%">Unspent / Total CP</span></label>
+		</div>
+		<div class="tn-race">	  	<label class="smlabel"><input type="text" name="attr_race"           title="@{race}"                         placeholder="Race"           /><br><span>Race</span></label></div>
+		<div class="tn-class">	  	<label class="smlabel"><input type="text" name="attr_class"          title="@{class}"                        placeholder="Class"          /><br><span>Class</span></label></div>
+		<div class="tn-character">	<label class="smlabel"><input type="text" name="attr_character_name" title="@{character_name}"               placeholder="Character Name" /><br><span>Character</span></label></div>
+		<div class="tn-size">		
+									<a class="popupbutton" href="#szconfig">x</a>
+									<label class="smilabel"><input type="text" name="attr_size"           class="size" title="@{size}"            placeholder="Size"           /><br><span style="padding-left: 50% !important;">Size</span></label></div>
+		<div class="tn-height">	  	<label class="smlabel"><input type="text" name="attr_height"         class="size" title="@{height}"          placeholder="Height"         /><br><span>Height</span></label></div>
+		<div class="tn-mass">	  	<label class="smlabel"><input type="text" name="attr_mass"           class="size" title="@{mass}"            placeholder="Mass"           /><br><span>Mass</span></label></div>
 
-</div>
-<div id="cpconfig" class="overlay">
-	<div class="popup">
-															
-		<div class="cpmodalgrid">
-			<div class="cp-unspent"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-unspent" title="@{cp-unspet}" placeholder="Unspent"   /><br><span>Unspent</span></label></div>
-			<div class="cp-base"       ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-base"    title="@{cp-base}"  placeholder="Base"      /><br><span>Base</span></label></div>
-			<div class="cp-abilities"  ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-abil"    title="@{cp-abil}"  placeholder="Abilities" /><br><span>Abilities</span></label></div>
-			<div class="cp-skills"     ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-skills"  title="@{cp-skills}"  placeholder="Skills"    /><br><span>Skills</span></label></div>
-			<div class="cp-defects"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-defects" title="@{cp-defects}"  placeholder="Defects"   /><br><span>Defects</span></label></div>
-			<div class="cp-custom1"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-custom1" title="@{cp-custom1}"  placeholder="Custom 1"  /><br><span>Custom 1</span></label></div>
-			<div class="cp-custom2"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-custom2" title="@{cp-custom2}"  placeholder="Custom 2"  /><br><span>Custom 2</span></label></div>
-			<div class="cp-dropdown"   ><label class="smlabel"><!-- 	<select name="attr_static_options_selection_gamegenre"> SkPoolLabel -->
-				<select class="cfg-select-template" name="attr_cfg_maj_template" title="Select which character sheet type you are using.">
-					<option value="">• Select One</option>
-					<option value="0">Multi-Genre</option>
-					<option value="1">Action Adventure</option>
-					<option value="2">Animal Adventures</option>
-					<option value="3">Classic Horror</option>
-					<option value="4">Detective</option>
-					<option value="5">Loony Cartoons</option>
-					<option value="6">Romantic Comedy</option>
-					<option value="7">Slice of Life</option>
-					<option value="8">Spy Thriller</option>
-					<option value="9">Supernatural Occult</option>
-					<option value="10">Eco Fantasy</option>
-					<option value="11">High Fantasy</option>
-					<option value="12">Low Fantasy</option>
-					<option value="13">Urban Fantasy</option>
-					<option value="14">Cyberpunk/Realitypunk</option>
-					<option value="15">Hard SF</option>
-					<option value="16">Mecha Drama</option>
-					<option value="17">Post- Apocalyptic</option>
-					<option value="18">Soft SF</option>
-					<option value="19">Space Opera</option>
-					<option value="20">20th Century War</option>
-					<option value="21">Age of Discovery</option>
-					<option value="22">Age of Pirates</option>
-					<option value="23">Age of Samurai</option>
-					<option value="24">Ancient Mediterranean</option>
-					<option value="25">Industrial Age</option>
-					<option value="26">Middle Ages</option>
-					<option value="27">Steampunk</option>
-					<option value="28">Stone Age</option>
-					<option value="29">Wild West</option>
-				</select>
-			<br><span>CP Genre</span></label></div>
-			<div class="cp-validation" ><label class="smlabel"><input type="text" class="w3m" name="attr_cp-"        title="@{cp-}"  placeholder="Race"      /><br><span></span></label></div>
-			<div class="cp-end">&nbsp;<a class="close" href="#">&times;</a></div>
+	</div>
+	<div id="cpconfig" class="overlay">
+		<div class="popup">													
+			<div class="cpmodalgrid">
+				<div class="cp-unspent"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-unspent" title="@{cp-unspet}" placeholder="Unspent"   /><br><span>Unspent</span></label></div>
+				<div class="cp-base"       ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-base"    title="@{cp-base}"  placeholder="Base"      /><br><span>Base</span></label></div>
+				<div class="cp-abilities"  ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-abil"    title="@{cp-abil}"  placeholder="Abilities" /><br><span>Abilities</span></label></div>
+				<div class="cp-skills"     ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-skills"  title="@{cp-skills}"  placeholder="Skills"    /><br><span>Skills</span></label></div>
+				<div class="cp-defects"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-defects" title="@{cp-defects}"  placeholder="Defects"   /><br><span>Defects</span></label></div>
+				<div class="cp-custom1"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-custom1" title="@{cp-custom1}"  placeholder="Custom 1"  /><br><span>Custom 1</span></label></div>
+				<div class="cp-custom2"    ><label class="smlabel"><input type="text" class="w3m"  name="attr_cp-custom2" title="@{cp-custom2}"  placeholder="Custom 2"  /><br><span>Custom 2</span></label></div>
+				<div class="cp-dropdown"   ><label class="smlabel"><!-- 	<select name="attr_static_options_selection_gamegenre"> SkPoolLabel -->
+					<select class="cfg-select-template" name="attr_cfg_cp_template" title="Select which character sheet type you are using.">
+						<option value="">• Select One</option>
+						<option value="0">Multi-Genre</option>
+						<option value="1">Action Adventure</option>
+						<option value="2">Animal Adventures</option>
+						<option value="3">Classic Horror</option>
+						<option value="4">Detective</option>
+						<option value="5">Loony Cartoons</option>
+						<option value="6">Romantic Comedy</option>
+						<option value="7">Slice of Life</option>
+						<option value="8">Spy Thriller</option>
+						<option value="9">Supernatural Occult</option>
+						<option value="10">Eco Fantasy</option>
+						<option value="11">High Fantasy</option>
+						<option value="12">Low Fantasy</option>
+						<option value="13">Urban Fantasy</option>
+						<option value="14">Cyberpunk/Realitypunk</option>
+						<option value="15">Hard SF</option>
+						<option value="16">Mecha Drama</option>
+						<option value="17">Post- Apocalyptic</option>
+						<option value="18">Soft SF</option>
+						<option value="19">Space Opera</option>
+						<option value="20">20th Century War</option>
+						<option value="21">Age of Discovery</option>
+						<option value="22">Age of Pirates</option>
+						<option value="23">Age of Samurai</option>
+						<option value="24">Ancient Mediterranean</option>
+						<option value="25">Industrial Age</option>
+						<option value="26">Middle Ages</option>
+						<option value="27">Steampunk</option>
+						<option value="28">Stone Age</option>
+						<option value="29">Wild West</option>
+					</select>
+				<br><span>CP Genre</span></label></div>
+				<div class="cp-validation" ><label class="smlabel">
+					<input class="checked cssbutton" type="checkbox" name="attr_2factorvalidate"    value="1" title="NOT YET IMPLEMENTED -- Validates Character Point Totals with the CP tracker section."/><span></span>
+					<br><span>Validate CP</span></label></div>
+				<div class="cp-end">&nbsp;<a class="close" href="#">&times;</a></div>
+			</div>
 		</div>
 	</div>
-</div>
-<!--             CONFIG
-	 IMG | Name  Total CP Race class  |
-	 IMG | Player Size Height Mass    |
-  -->
-    
-<input class="tabstoggle" type="hidden" name="attr_sheetTab" value="core" />
-	<div>
-		<button type="action" class="topnav topnav0" name="act_core"       >Attributes &amp; Abilities</button>
-		<button type="action" class="topnav topnav1" name="act_advantages" >Advantages</button>
-		<button type="action" class="topnav topnav2" name="act_combat"     >Combat</button>
-		<button type="action" class="topnav topnav3" name="act_details"    >Details</button>
-		<button type="action" class="topnav topnav4" name="act_biography"  >Biography</button>
-		<button type="action" class="topnav topnav5" name="act_config"     >Config</button>
+	<!--             CONFIG
+		 IMG | Name  Total CP Race class  |
+		 IMG | Player Size Height Mass    |
+	  -->
+	<div id="szconfig" class="overlay">
+		<div class="popup">
+			<div class="szmodalgrid">
+				<div class="sz-drop"><label class="smlabel"><!-- 	<select name="attr_static_options_selection_gamegenre"> SkPoolLabel -->
+					<select class="cfg-select-template" name="attr_cfg_size_template" title="Select which character size you are.">
+						<option value=""> Select One</option>
+						<option value="-10">Point</option>
+						<option value="-9">Mote</option>
+						<option value="-8">Speck</option>
+						<option value="-7">Wee</option>
+						<option value="-6">Minute</option>
+						<option value="-5">Teeny</option>
+						<option value="-4">Fine</option>
+						<option value="-3">Diminutive</option>
+						<option value="-2">Tiny</option>
+						<option value="-1">Small</option>
+						<option value="0" selected>• Medium</option>
+						<option value="1">Large</option>
+						<option value="2">Huge</option>
+						<option value="3">Mammoth</option>
+						<option value="4">Gigantic</option>
+						<option value="5">Gargantuan</option>
+						<option value="6">Colossal</option>
+						<option value="7">Enormous</option>
+						<option value="8">Monstrous</option>
+						<option value="9">Titanic</option>
+						<option value="10">Monumental</option>
+					</select><br><span>Size</span></label>
+				</div>
+				<div class="sz-desc"><textarea style="width: calc(100% - 10px);height:150px;"></textarea></div>
+				<div class="sz-rank" ><label class="smlabel"><input type="text" class="w3m"  name="attr_sz-rank" title="@{sz-rank}" placeholder="0"   /><br><span>Rank</span></label></div>
+				<div class="sz-cost" ><label class="smlabel"><input type="text" class="w3m"  name="attr_sz-cost" title="@{sz-cost}" placeholder="0"   /><br><span>Cost</span></label></div>
+				<div class="sz-buff" ><label class="smlabel"><input type="text" class="w3m"  name="attr_sz-buff" title="@{sz-buff}" placeholder="0"   /><br><span>Buff</span></label></div>
+				<div class="sz-final"><label class="smlabel"><input type="text" class="w3m"  name="attr_sz-final" title="@{sz-final}" placeholder="0"   /><br><span>Final</span></label></div>
+				<div class="sz-end" >&nbsp;<a class="close" href="#">&times;</a></div>
+			</div>
+		</div>
 	</div>
-	<span style="display: block;background: black;margin-bottom: 1em;border-radius: 0px 0px 10px 10px;">&nbsp;</span>
-	<!-- END OF NAVBAR AREA -->
+	<!--          BASE SIZE TEMPLATE
+		 SizeDrop  SizeDrop  SizeDrop Description  |
+		 BaseRank  Cost      BuffRank Description  |
+		 FinalSz   FinalSz   FinalSz  Description  \
+	  -->
+	<input class="tabstoggle" type="hidden" name="attr_sheetTab" value="core" />
+		<div>
+			<button type="action" class="topnav topnav0" name="act_core"       >Attributes &amp; Abilities</button>
+			<button type="action" class="topnav topnav1" name="act_advantages" >Advantages</button>
+			<button type="action" class="topnav topnav2" name="act_combat"     >Combat</button>
+			<button type="action" class="topnav topnav3" name="act_details"    >Details</button>
+			<button type="action" class="topnav topnav4" name="act_biography"  >Biography</button>
+			<button type="action" class="topnav topnav5" name="act_config"     >Config</button>
+		</div>
+		<span style="display: block;background: black;margin-bottom: 0.2em;border-radius: 0px 0px 10px 10px;">&nbsp;</span>
+		<!-- END OF NAVBAR AREA -->
+		
+		<div class="core">
+			<p>core test</p>
+			<br><br>
+		</div>
+		<div class="config">
+			<p>config test</p>
+		</div>
+		
+	<span style="display: block;background: black;margin-top: -0.5em;border-radius: 10px 10px 0px 0px;">&nbsp;</span>
+	<div class="footergrid">
+		<div class="foot-Lgototop">UP</div>
+		<div class="foot-sheetver"><label class="smlabel"><input type="text" name="attr_sheetversion" title="@{sheetversion}" placeholder="Version"/><br><span>Version</span></label></div>
+		<div class="foot-sheetdate"><label class="smlabel"><input type="text" name="attr_sheetdate" title="@{sheetdate}" placeholder="Date"/><br><span>Date</span></label></div>
+		<div class="foot-sheettype"><label class="smlabel"><input type="text" name="attr_sheettype" title="@{sheettype}" placeholder="Type"/><br><span>Type</span></label></div>
+		<div class="foot-sheetauth"><label class="smlabel"><input type="text" name="attr_sheetauth" title="@{sheetauth}" placeholder="Author"/><br><span>Author</span></label></div>
+		<div class="foot-sheetlink"><label class="smlabel"><input type="text" name="attr_sheetlink" title="@{sheetlink}" placeholder="Link"/><br><span>Link</span></label></div>
+		<div class="foot-sheetdoc"><label class="smlabel"><input type="text" name="attr_sheetdoc" title="@{sheetdoc}" placeholder="Documentation"/><br><span>Documentation</span></label></div>
+		<div class="foot-Rgototop">UP</div>
+
+	</div>
 	
-	<div class="core">
-		<p>core test</p>
-	</div>
-	<div class="config">
-		<p>config test</p>
-	</div>
 </div>
+
+
 <!-- Sheet Workers -->
 <script type="text/worker">
 	const buttonlist = ["core", "combat", "abilities", "advantages", "details", "biography", "config"];

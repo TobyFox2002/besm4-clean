@@ -104,6 +104,12 @@ popupbutton:hover {background: cyan;}
 	line-height: unset;
 	opacity: .5;
 }
+.checked + span:before {
+	font-family: "Pictos" !important;
+	content: "3";
+}
+
+label.smlabel input.checked {margin-left: -20%;}
 .popup .close:hover {
   color: #8d56a7; /* This is for both light and dark mode */
 }
@@ -115,6 +121,7 @@ popupbutton:hover {background: cyan;}
 label.smilabel {display: inline !important;}
 label.smlabel {text-align: center;}
 label.smlabel span, label.smilabel span {font-size: 0.7em;}
+label.smlabel select {margin: 0px;}
 
 button[type="roll"]:before {
 	font-family: "dicefontd10" !important;
@@ -131,6 +138,13 @@ button.quickroll:before {/* Overides the icon so text can be displayed within in
 	font-family: "RufscriptRegular";
 	src: url("http://openfontlibrary.org/assets/fonts/rufscript/92112519f91e7a5ab80261a017c09b72/f886671cdc88e2725676a457e14e8512/RufscriptRegular.ttf");
 }
+.sheet-darkmode input {
+	border-bottom: 1px dotted gray;
+	background-color: #24242b;
+	color:#ee5f5b;
+	box-shadow: inset 0px 0px 2px white;
+	}
+.sheet-darkmode select {background-color: black;color:#ee5f5b;}
 input[type="text"],
 input[type="number"] {
 	width: 90%;
@@ -141,7 +155,7 @@ input[type="number"] {
 	font-family: Sans-serif;
 	line-height: 1.5em;
 
-	border: 0px solid #666;
+	border-bottom: 1px dotted gray;
 	border-bottom-width: 1px;
 	border-radius: 3px;
 }
@@ -194,6 +208,10 @@ input.refreshbutton, input.split-column-show, input.lock-show , input.counted {
 .help-show + span:before {
 	font-family: "Pictos" !important;
 	content: "?";
+}
+.checked + span:before {
+	font-family: "Pictos" !important;
+	content: "3";
 }
 .noexpand + span:before {
 	font-family: "Pictos" !important;
@@ -250,6 +268,10 @@ input.refreshbutton, input.split-column-show, input.lock-show , input.counted {
 .tools:checked + span:before {
 	font-family: "Pictos" !important;
 	content: "x";
+}
+.home:checked + span:before {
+	font-family: "Pictos" !important;
+	content: "{";
 }
 /* Navigational Buttons and Config Buttons */
 /* Show/Hide Content for the selected navigational Tab */
@@ -338,7 +360,7 @@ input.refreshbutton, input.split-column-show, input.lock-show , input.counted {
 .tn-config {grid-area: config; justify-self: right; align-self: center; border: solid 1px red;}
 .tn-img {grid-area: img; justify-self: stretch; align-self: center;width:max-content;}
 .tn-character {grid-area: character; justify-self: center; align-self: center;}
-.tn-cp {grid-area: cp; justify-self: center; align-self: center;}
+.tn-cp {grid-area: cp; justify-self: center; align-self: auto;}
 .chpoints {width: 4.5em !important;}
 .tn-race {grid-area: race; justify-self: center; align-self: center;}
 .tn-class {grid-area: class; justify-self: center; align-self: center;}
@@ -356,10 +378,10 @@ input.refreshbutton, input.split-column-show, input.lock-show , input.counted {
 	gap: 0px 0px;
 	grid-auto-flow: row;
 	grid-template-areas:
-		"unspent cpbase    cpability cpskills    cpdefects cpexit"
+		"unspent cpbase    cpability cpskills    cpdefects    cpexit"
 		"unspent cpcustom1 cpcustom2 cpdropdown  cpvalidation cpexit";
 }
-.cp-unspent    {grid-area:unspent;      justify-self:anchor-center;align-self:stretch;border: 1px solid red;}
+.cp-unspent    {grid-area:unspent;      justify-self:stretch;align-self:center;border: 1px solid red;}
 .cp-base       {grid-area:cpbase;       justify-self:stretch;align-self:stretch;border: 1px solid red;}
 .cp-abilities  {grid-area:cpability;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
 .cp-skills     {grid-area:cpskills;     justify-self:stretch;align-self:stretch;border: 1px solid red;}
@@ -369,3 +391,44 @@ input.refreshbutton, input.split-column-show, input.lock-show , input.counted {
 .cp-dropdown   {grid-area:cpdropdown;   justify-self:stretch;align-self:stretch;border: 1px solid red;}
 .cp-validation {grid-area:cpvalidation; justify-self:stretch;align-self:stretch;border: 1px solid red;}
 .cp-end        {grid-area:cpexit;       justify-self:unset;align-self:flex-start;padding-right: .4em;}
+
+/* Size (SZ) Popup Modal Grid */
+.szmodalgrid {
+	display: grid;
+	grid-template-columns: auto auto auto auto 2em;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"dropdown dropdown dropdown description szexit"
+		"baserank cost     buffrank description szexit"
+		"finalsz  finalsz  finalsz  description szexit";
+}
+.sz-drop   {grid-area:dropdown;    justify-self:stretch;align-self: center;border: 1px solid red;}
+.sz-desc   {grid-area:description; justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.sz-rank   {grid-area:baserank;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.sz-cost   {grid-area:cost;        justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.sz-buff   {grid-area:buffrank;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.sz-final  {grid-area:finalsz;     justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.sz-end    {grid-area:szexit;      justify-self:unset;  align-self:flex-start;padding-right: .4em;}
+
+/* Footer Grid */
+.footergrid {
+	display: grid;
+	grid-template-columns: 2em auto auto auto 2em;
+	grid-template-rows: 1fr 1fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"Ltotop version lastdate sheettype Rtotop"
+		"Ltotop author  link     document  Rtotop"
+}
+.footergrid label {margin-bottom: unset;}
+.foot-Lgototop    {grid-area:Ltotop;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.foot-sheetver    {grid-area:version;   justify-self:stretch;align-self: center;border: 1px solid red;}
+.foot-sheetdate   {grid-area:lastdate;  justify-self:stretch;align-self: center;border: 1px solid red;}
+.foot-sheettype   {grid-area:sheettype; justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.foot-sheetauth   {grid-area:author;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.foot-sheetlink   {grid-area:link;      justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.foot-sheetdoc    {grid-area:document;  justify-self:stretch;align-self:stretch;border: 1px solid red;}
+.foot-Rgototop    {grid-area:Rtotop;    justify-self:stretch;align-self:stretch;border: 1px solid red;}
